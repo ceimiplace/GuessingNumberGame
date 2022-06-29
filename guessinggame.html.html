@@ -16,9 +16,13 @@
         }
 
         body {
-
+            background: linear-gradient(blue, 900px, red);
+            margin: 0;
+            box-sizing: border-box;
             display: flex;
             justify-content: center;
+            height: 100vh;
+            width: 100vw;
 
         }
 
@@ -30,7 +34,9 @@
         }
 
         .message {
+            margin-top: 20px;
             font-size: 20px;
+            color: antiquewhite;
         }
 
         input {
@@ -49,6 +55,7 @@
     </div>
 </body>
 <script>
+
     let game = {};
     let startButton = document.querySelector(".start");
     startButton.addEventListener("click", startGame);
@@ -64,17 +71,23 @@
         game.start.textContent = "Game started";
         game.input.setAttribute("placeholder", "Enter your number");
         game.message.textContent = "Please pick a number between 1-10"
-    }
+    };
+
+
     function checkNumber() {
         if (game.input.value < randomNumber) {
             game.message.textContent = "Too low";
-            game.input.value = ""
+            game.input.value = "";
+
+
         } else if (game.input.value > randomNumber) {
             game.message.textContent = "Too high";
+
 
         } else {
             game.message.textContent = "Nailed it";
             game.input.value = ""
+
         }
 
     }
@@ -82,7 +95,8 @@
     resetButton.addEventListener("click", () => {
         game.message.textContent = "Welcome to my game"
         randomNumber = Math.ceil(Math.random() * 9);
-        game.input.removeAttribute("placeholder")
+        game.input.removeAttribute("placeholder");
+
     })
 
 </script>
